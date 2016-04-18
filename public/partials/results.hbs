@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div col-md-12>
+            <table class="table">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Phones
+                    </th>
+                    <th>
+                        Addresses
+                    </th>
+                </tr>
+                <tr ng-repeat="match in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                    <td>
+                        {{match.customer_id}}
+                    </td>
+                    <td>
+                        {{match.first_name}}, {{match.last_name}}
+                    </td>
+                    <td ng-repeat="phone in match.phones">
+                        {{phone.number}}
+                    </td>
+                    <td ng-repeat="address in match.addresses">
+                        {{address.label}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h4 class="pull-left selector selectorWords">Display</h4>
+            <select ng-model="viewby" ng-change="setItemsPerPage(viewby)" class="selectpicker pull-left selector">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+            </select>
+            <h4 class="pull-left selector selectorWords">items</h4>
+        </div>
+        <div class="col-md-6">
+            <pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+        </div>
+    </div>
+</div>
+
+
+<script src="/javascripts/js.js"></script>

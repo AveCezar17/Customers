@@ -1,0 +1,23 @@
+<div ng-controller="customersController">
+    <div class="container">
+        <h2>Before searching you need to be logged in!!!</h2>
+        <form name="form" ng-submit="submit(email, password)">
+            <div class="form-group-lg">
+                <h3>Enter your email</h3>
+                <input class="form-control" type="email" name="email" ng-model="email" placeholder="email" email required><br>
+                <h5 class="error-text" ng-show="form.email.$error.email">The value is not a valid email!</h5>
+                <h5 class="error-text" ng-show="form.email.$error.required">You did not enter email!</h5>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="form-group-lg">
+                <h3>Enter your password</h3>
+                <input class="form-control" type="password" name="password" ng-model="password" placeholder="password" required><br>
+                <h5 class="error-text" ng-show="form.password.$error.required">You did not enter a password!</h5>
+            </div>
+            <br>
+            <input class="btn btn-lg btn-primary" type="submit" value="Login">
+        </form>
+    </div>
+</div>
